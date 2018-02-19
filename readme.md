@@ -9,6 +9,31 @@ as connecting to remote testnets.
 # Instructions
 [Alpha Casper FFG Testnet Instructions](https://hackmd.io/s/Hk6UiFU7z)
 
+# Sync Public Testnet
+To sync with a public testnet, you will need to:
+
+1. Clone this repository, 
+2. Create or import your keystore, and
+3. Start your node! You will need to provide a `bootstrap_node` of the form `enode://[NODE_PUB_KEY]@[NODE_IP_ADDR]:30303`.
+The `NODE_PUB_KEY` is your bootstrap node's public key found in the `config.yaml`, and `NODE_IP_ADDR` is its IP address.
+
+
+```bash
+$ git clone git@github.com:linyize/docker-pyeth-dev.git
+$ cd docker-pyeth-dev
+$ make new-acccount
+🌟 Creating keystore directory at ./validator/data/config/keystore
+mkdir -p ./validator/data/config/keystore
+🌟 Enter a new password to encrypt your account:
+🌟 Your password is stored at ./validator/data/config/password.txt
+🌟 Pyethapp container is creating new address for you, might take few seconds:
+
+$ make run-node bootstrap_node=enode://[NODE_PUB_KEY]@[NODE_IP_ADDR]:30303
+```
+
+In the above example we created a new account. However, if you have a keystore you would like to use
+feel free to copy and paste it into `./validator/data/config/keystore`. Note that your account keystore, blockchain, and logs are all stored in `./validator/data`
+
 ## Running a Miner
 At first, you will have no ETH so you may wish to spend some time mining. To do this simply run your node
 with `mine_percent` as any number `1-100`. `mine_percent` specifies the percentage of your CPU you want to
