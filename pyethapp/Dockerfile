@@ -26,8 +26,9 @@ RUN git clone https://github.com/linyize/pyethereum.git &&\
     cd pyethereum && git submodule update --init casper
 RUN git clone https://github.com/linyize/pyethapp.git
 RUN cd viper && git reset --hard 9be3ac1945ab98c932ec769274965e9bb0536bb2 && python setup.py develop
-RUN cd pyethapp && python setup.py develop
-RUN cd pyethereum && python setup.py develop
+RUN cd pyethapp && git checkout feature-pos && python setup.py develop
+RUN cd pyethereum/casper && git checkout feature-pos
+RUN cd pyethereum && git checkout feature-pos && python setup.py develop
 
 # Download the filebeat package and install 
 RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.0-amd64.deb
