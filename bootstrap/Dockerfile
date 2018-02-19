@@ -22,13 +22,13 @@ RUN pip install coincurve==6.0.0 web3
 # Clone and install (editable) required repositories
 WORKDIR /ethereum
 RUN git clone https://github.com/ethereum/viper.git
-RUN git clone https://github.com/linyize/pyethereum.git &&\
+RUN git clone https://github.com/linyize/pyethereum.git --branch feature-pos &&\
     cd pyethereum && git submodule update --init casper
-RUN git clone https://github.com/linyize/pyethapp.git
+RUN git clone https://github.com/linyize/pyethapp.git --branch feature-pos
 RUN cd viper && git reset --hard 9be3ac1945ab98c932ec769274965e9bb0536bb2 && python setup.py develop
-RUN cd pyethapp && git checkout feature-pos && python setup.py develop
+RUN cd pyethapp && python setup.py develop
 RUN cd pyethereum/casper && git checkout feature-pos
-RUN cd pyethereum && git checkout feature-pos && python setup.py develop
+RUN cd pyethereum && python setup.py develop
 
 # Download the filebeat package and install 
 RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.0-amd64.deb
