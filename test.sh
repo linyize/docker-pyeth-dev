@@ -41,16 +41,16 @@ pyethapp -d ~/Desktop/Ethereum/linyize/localnet/val3 -m 0 -l eth.chain:info,eth.
 
 pyethapp -d ~/Desktop/Ethereum/linyize/localnet/val4 -m 0 -l eth.chain:info,eth.chainservice:info,eth.validator:info --password ~/Desktop/Ethereum/linyize/localnet/val4/password.txt --log-file ~/Desktop/Ethereum/linyize/localnet/val4/log.txt --unlock 5  --validate 5  --deposit 2000 run
 
-
+# test transaction
 from web3 import Web3, HTTPProvider
 from ethereum.transactions import Transaction
 from ethereum.utils import privtoaddr, encode_hex
 import sys
 import rlp
-#073f20292c73dc8f3b144ef28519d179464c5bf8
-faucetPrivkey = '035ec487c47b71f129efe93b64a69e8b398a3217fd30b049aaaed2ddcd9c387e'
+
+faucetPrivkey = '042d03aee80224434c34af66afc84793952646d20dc4151b1d1b26eb2629130d'
 faucetAddress = encode_hex(privtoaddr(faucetPrivkey))
-recipAddress = 'abaddcf3c113e8b6ddb9a29e9e6e66989d7e289e'
+recipAddress = 'bdfe5a020a08a30c7c4790439940d3bc6680cef1'
 provider_uri = 'http://127.0.0.1:8545'
 
 web3 = Web3(HTTPProvider(provider_uri))
@@ -59,7 +59,7 @@ web3.eth.getBalance(faucetAddress)
 web3.eth.getBalance(recipAddress)
 
 nonce = web3.eth.getTransactionCount(faucetAddress)
-tx = Transaction(nonce, 100*10**9, 25*10**3, recipAddress, 1*10**18, '').sign(faucetPrivkey)
+tx = Transaction(nonce, 100*10**9, 25*10**3, recipAddress, 5000*10**18, '').sign(faucetPrivkey)
 txraw = rlp.hex_encode(tx)
 txid = web3.eth.sendRawTransaction(txraw)
 web3.eth.getTransactionReceipt(txid)
@@ -67,5 +67,11 @@ web3.eth.getTransactionReceipt(txid)
 web3.eth.getBalance(faucetAddress)
 web3.eth.getBalance(recipAddress)
 
-
+# fix gasprice problem
+cd docker-pyeth-dev/
+git pull
+docker-compose build
+docker cp utils/faucet_util.py bootstrap:/ethereum/
+docker cp bootstrap/data/config bootstrap:/root/.config/pyethapp
+docker cp miner/default_data/config miner:/root/.config/pyethapp
 
