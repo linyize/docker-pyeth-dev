@@ -14,7 +14,7 @@ provider_uri = 'http://' + sys.argv[3] + ':8545'
 web3 = Web3(HTTPProvider(provider_uri))
 
 nonce = web3.eth.getTransactionCount(faucetAddress)
-tx = Transaction(nonce, 25*10**9, 21*10**3, recipAddress, 5000*10**19, '').sign(faucetPrivkey)
+tx = Transaction(nonce, 100*10**9, 25*10**3, recipAddress, 5000*10**18, '').sign(faucetPrivkey)
 txraw = rlp.hex_encode(tx)
 print('Transaction generated')
 txid = web3.eth.sendRawTransaction(txraw)
