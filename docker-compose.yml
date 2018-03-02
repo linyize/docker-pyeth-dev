@@ -5,6 +5,8 @@ services:
     build: "./bootstrap"
     image: localethereum/pyethapp-bootstrap
     restart: always
+    ports:
+     - "30303:30303"
     networks:
       back:
           ipv4_address: 172.18.250.2
