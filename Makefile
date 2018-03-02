@@ -37,3 +37,19 @@ run-node:
 		casper-validator \
 		pyethapp -m ${mine_percent} --unlock ${account} ${_validate} ${_deposit} ${_logout} --password /root/.config/pyethapp/password.txt -l ${log_config} --log-file /root/log/log.txt -b ${bootstrap_node} run
 	docker logs -f ${validator_name}
+
+
+data_path := 99
+new-account2:
+	bash ./utils/new-account2.sh ./validator/data$(data_path) $(current_dir)
+
+run-node2:
+	docker build ./validator -t casper-validator
+	@echo "\n🌟👻 Starting node! 👻🌟\n"
+	docker run -it --name validator$(data_path) \
+                -v $(current_dir)/validator/data$(data_path)/config:/root/.config/pyethapp \
+                -v $(current_dir)/validator/data$(data_path)/log:/root/log \
+                ${network} \
+                casper-validator \
+                pyethapp -m ${mine_percent} --unlock ${account} ${_validate} ${_deposit} ${_logout} --password /root/.config/pyethapp/password.txt -l ${log_config} --log-file /root/log/log.txt -b ${bootstrap_node} run
+	docker logs -f ${validator_name}
