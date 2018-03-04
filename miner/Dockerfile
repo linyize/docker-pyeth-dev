@@ -50,4 +50,6 @@ EXPOSE 30303
 EXPOSE 30303/udp
 EXPOSE 8545
 
+RUN cd pyethapp && git pull
+
 ENTRYPOINT ["sh","/root/start.sh"]
