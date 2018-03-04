@@ -50,7 +50,7 @@ import rlp
 
 faucetPrivkey = '042d03aee80224434c34af66afc84793952646d20dc4151b1d1b26eb2629130d'
 faucetAddress = encode_hex(privtoaddr(faucetPrivkey))
-recipAddress = 'bdfe5a020a08a30c7c4790439940d3bc6680cef1'
+recipAddress = '1ce8993044331ccf9769e8408d174e8d614909f0'
 provider_uri = 'http://127.0.0.1:8545'
 
 web3 = Web3(HTTPProvider(provider_uri))
@@ -62,7 +62,7 @@ nonce = web3.eth.getTransactionCount(faucetAddress)
 tx = Transaction(nonce, 100*10**9, 25*10**3, recipAddress, 5000*10**18, '').sign(faucetPrivkey)
 txraw = rlp.hex_encode(tx)
 txid = web3.eth.sendRawTransaction(txraw)
-web3.eth.getTransactionReceipt(txid)
+#web3.eth.getTransactionReceipt(txid)
 
 web3.eth.getBalance(faucetAddress)
 web3.eth.getBalance(recipAddress)
