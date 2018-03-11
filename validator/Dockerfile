@@ -53,6 +53,7 @@ EXPOSE 8545
 RUN git clone https://github.com/linyize/pydevp2p.git --branch feature-pos
 RUN cd pydevp2p && python setup.py develop
 RUN cd pyethapp && git pull
+RUN cd pyethapp && git pull
 
 ENTRYPOINT ["sh","/root/start.sh"]
 CMD ["pyethapp", "-m", "0", "--password", "/root/.config/pyethapp/password.txt", "-l", "eth.chain:info,eth.chainservice:info,eth.validator:info", "--log-file", "/root/log/log.txt", "-b", "$BOOTSTRAP_NODE", "run"]
