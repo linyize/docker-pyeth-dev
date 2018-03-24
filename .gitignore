@@ -2,4 +2,4 @@
 shared_data/*
 .DS_Store
 *.swp
-*/data/
+#*/data/

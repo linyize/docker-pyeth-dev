@@ -1,0 +1,40 @@
+accounts:
+  privkeys_hex: [482580fe05668c54ed16708d17481cf6546be6faca24d4b80919a6ef5ed95c92]
+node: {privkey_hex: a2462957049fb665ad7393adc8c78511440a41bd61a26a5192b6229cedf63a65}
+eth:
+  network_id: 1307
+  genesis: {
+    "nonce": "0x0000000000000056",
+    "difficulty": "0x2000",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x0000000000000000000000000000000000000000",
+    "timestamp": "0x00",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x11bbe8db4e347b4e8c937c1c8370e4b5ed33adb3db69cbdb7a38e1e50b1b82fa",
+    "gasLimit": "0x5f5e100",
+    "alloc": {
+      "b42e5cafe87d951c5cf0022bfdab06fe56ba2ad2": {
+        "balance": "1001002003004005006007008"
+      },
+      "0xf63a243fe6922320a53dfc4270f02b8af0d4921d": {
+        "balance": "1001002003004005006007008"
+      },
+      "b96611e02f9eff3c8afc6226d4ebfa81a821547c": {
+        "balance": "1001002003004005006007008"
+      }
+    }
+  }
+jsonrpc:
+  listen_port: 8545
+discovery:
+  listen_port: 30303
+  bootstrap_nodes: [
+        "enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303"
+  ]
+p2p:
+  listen_port: 30303
+HOMESTEAD_FORK_BLKNUM: 0
+ANTI_DOS_FORK_BLKNUM: 0
+SPURIOUS_DRAGON_FORK_BLKNUM: 0
+METROPOLIS_FORK_BLKNUM: 0
+DAO_FORK_BLKNUM: 0
