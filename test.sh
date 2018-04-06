@@ -12,7 +12,7 @@ pyethapp -d . --password ./password.txt account new
 pyethapp -l :error -d ~/Desktop/Ethereum/linyize/localnet/test --log-file ~/Desktop/Ethereum/linyize/localnet/test/log.txt run
 
 #bootstrap
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/boot --unlock 1 --validate 1 --deposit 5000 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/boot/log.txt run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/boot --unlock 1 --validate 1 --deposit 5000 -m 0 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/boot/log.txt run
 
 #miner
 pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node1 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node1/log.txt --unlock 1 run
