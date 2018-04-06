@@ -61,5 +61,11 @@ RUN cd viper && python setup.py develop
 RUN cd pyethapp && python setup.py develop
 RUN cd pyethereum && python setup.py develop
 RUN cd tinyrpc && python setup.py develop
+RUN cd pydevp2p && python setup.py develop
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/devp2p-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/ethereum-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/pyethapp-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/tinyrpc-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/viper-*
 
 ENTRYPOINT ["sh","/root/start.sh"]

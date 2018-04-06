@@ -18,7 +18,19 @@ RUN cd tinyrpc && python setup.py develop
 
 RUN git clone https://github.com/linyize/pydevp2p.git --branch feature-pos
 RUN cd pydevp2p && python setup.py develop
-#RUN cd pyethapp && git pull
+
+RUN cd pyethapp && git pull
+RUN cd pyethereum && git pull
+RUN cd viper && python setup.py develop
+RUN cd pyethapp && python setup.py develop
+RUN cd pyethereum && python setup.py develop
+RUN cd tinyrpc && python setup.py develop
+RUN cd pydevp2p && python setup.py develop
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/devp2p-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/ethereum-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/pyethapp-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/tinyrpc-*
+RUN rm -rf /usr/local/lib/python3.6/dist-packages/viper-*
 
 EXPOSE 30303
 EXPOSE 30303/udp
