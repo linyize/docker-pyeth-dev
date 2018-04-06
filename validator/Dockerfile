@@ -56,5 +56,11 @@ RUN cd pyethereum/casper && git pull
 RUN cd pyethereum && git pull
 RUN cd pyethapp && git pull
 
+RUN cd pyethereum && git pull
+RUN cd viper && python setup.py develop
+RUN cd pyethapp && python setup.py develop
+RUN cd pyethereum && python setup.py develop
+RUN cd tinyrpc && python setup.py develop
+
 ENTRYPOINT ["sh","/root/start.sh"]
 CMD ["pyethapp", "-m", "0", "--password", "/root/.config/pyethapp/password.txt", "-l", "eth.chain:info,eth.chainservice:info,eth.validator:info", "--log-file", "/root/log/log.txt", "-b", "$BOOTSTRAP_NODE", "run"]
