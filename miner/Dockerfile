@@ -15,6 +15,9 @@ RUN apt-get install -y solc build-essential python-minimal aptitude curl \
     libssl-dev automake pkg-config libtool libffi-dev libgmp-dev
 RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
 
+RUN mkdir -p ~/.pip/
+COPY pip.conf ~/.pip/pip.conf
+
 # Install Python dependencies
 RUN python3.6 -m pip install pip --upgrade
 RUN python3.6 -m pip install wheel
