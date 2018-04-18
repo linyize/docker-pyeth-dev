@@ -12,26 +12,26 @@ pyethapp -d . --password ./password.txt account new
 pyethapp -l :error -d ~/Desktop/Ethereum/linyize/localnet/test --log-file ~/Desktop/Ethereum/linyize/localnet/test/log.txt run
 
 #bootstrap
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/boot --unlock 1 --validate 1 --deposit 5000 -m 0 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/boot/log.txt run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/boot --unlock 1 --validate 1 --deposit 2000 -m 0 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/boot/log.txt run
 
 #miner
 pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node1 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node1/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node2 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node2/log.txt --unlock 1 --validate 1 --deposit 3000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node2 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node2/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node3 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node3/log.txt --unlock 1 --validate 1 --deposit 2000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node3 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node3/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node4 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node4/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node4 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node4/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node5 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node5/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node5 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node5/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node6 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node6/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node6 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node6/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node7 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node7/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node7 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node7/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node8 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node8/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node8 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node8/log.txt --unlock 1 run
 
-pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node9 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node9/log.txt --unlock 1 --validate 1 --deposit 1000 run
+pyethapp -d ~/Desktop/Ethereum/linyize/localnet/node9 -m 100 --password ~/Desktop/Ethereum/linyize/localnet/boot/password.txt -l eth.chain:info,eth.chainservice:info,eth.validator:info --log-file ~/Desktop/Ethereum/linyize/localnet/node9/log.txt --unlock 1 run
 
 
 # test transaction
