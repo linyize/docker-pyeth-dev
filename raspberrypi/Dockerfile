@@ -10,7 +10,6 @@ RUN git clone https://github.com/linyize/tinyrpc.git
 RUN git clone https://github.com/linyize/pyethereum.git --branch feature-pos &&\
     cd pyethereum && git submodule update --init casper
 RUN git clone https://github.com/linyize/pyethapp.git --branch feature-pos
-RUN cd viper && git reset --hard 9be3ac1945ab98c932ec769274965e9bb0536bb2
 RUN cd pyethereum/casper && git checkout feature-pos
 RUN git clone https://github.com/linyize/pydevp2p.git --branch feature-pos
 
