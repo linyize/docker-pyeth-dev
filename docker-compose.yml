@@ -23,6 +23,102 @@ services:
     networks:
       back:
           ipv4_address: 172.18.250.4
+  miner2:
+    container_name: miner2
+    build: "./miner"
+    image: localethereum/pyethapp-miner
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - MINE_PERCENT=50
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.5
+  miner3:
+    container_name: miner3
+    build: "./miner"
+    image: localethereum/pyethapp-miner
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - MINE_PERCENT=50
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.6
+  val1:
+    container_name: val1
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=1
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.7
+  val2:
+    container_name: val2
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=2
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.8
+  val3:
+    container_name: val3
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=3
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.9
+  val4:
+    container_name: val4
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=4
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.10
+  val5:
+    container_name: val5
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=5
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.11
+  val6:
+    container_name: val6
+    build: "./validator"
+    image: localethereum/pyethapp-validator
+    environment:
+      - BOOTSTRAP_NODE=enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303
+      - VAL=6
+      - SLEEPTIME=1
+    restart: always
+    networks:
+      back:
+          ipv4_address: 172.18.250.12
 networks:
   back:
     driver: bridge

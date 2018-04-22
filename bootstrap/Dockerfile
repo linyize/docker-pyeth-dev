@@ -37,15 +37,8 @@ RUN cd pyethereum/casper && git checkout feature-pos
 RUN git clone https://github.com/linyize/pydevp2p.git --branch feature-pos
 
 # Download the filebeat package and install 
-RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.0-amd64.deb
+RUN curl -L -O http://7b1gcw.com1.z0.glb.clouddn.com/filebeat-6.1.0-amd64.deb
 RUN dpkg -i filebeat-6.1.0-amd64.deb
-
-# config bootstrap node
-COPY data/config /root/.config/pyethapp
-COPY filebeat.yml /etc/filebeat/filebeat.yml
-RUN chmod go-w /etc/filebeat/filebeat.yml
-COPY start.sh /root/
-COPY data/log /root/log
 
 RUN cd pydevp2p && git pull
 RUN cd pyethereum/casper && git pull
@@ -53,7 +46,6 @@ RUN cd pyethereum && git pull
 RUN cd pyethapp && git pull
 RUN cd vyper && git checkout v0.0.4
 RUN cd pyethereum && python setup.py develop
-RUN cd pyethereum/casper && python setup.py develop
 RUN cd pyethapp && python setup.py develop
 RUN cd tinyrpc && python setup.py develop
 RUN cd pydevp2p && python setup.py develop
@@ -63,6 +55,17 @@ RUN rm -rf /usr/local/lib/python3.6/dist-packages/ethereum-*
 RUN rm -rf /usr/local/lib/python3.6/dist-packages/pyethapp-*
 RUN rm -rf /usr/local/lib/python3.6/dist-packages/tinyrpc-*
 RUN rm -rf /usr/local/lib/python3.6/dist-packages/vyper-*
+
+# config bootstrap node
+COPY data/config /root/.config/pyethapp
+COPY filebeat.yml /etc/filebeat/filebeat.yml
+RUN chmod go-w /etc/filebeat/filebeat.yml
+COPY start.sh /root/
+COPY data/log /root/log
+
+RUN cd pydevp2p && git pull
+RUN cd pyethapp && git pull
+RUN cd pyethereum && git pull
 
 EXPOSE 30303
 EXPOSE 30303/udp

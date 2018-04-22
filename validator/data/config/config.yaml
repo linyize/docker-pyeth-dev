@@ -1,6 +1,6 @@
 accounts:
   privkeys_hex: [482580fe05668c54ed16708d17481cf6546be6faca24d4b80919a6ef5ed95c92]
-node: {privkey_hex: PRIVKEY}
+node: {privkey_hex: 8a7c05229e8696c70ed83ffed9aefe02aeb93352b68584f130944303590fa63b}
 eth:
   network_id: 8888
   genesis: {
@@ -17,7 +17,7 @@ eth:
         "balance": "5001001002003004005006"
       },
       "073f20292c73dc8f3b144ef28519d179464c5bf8": {
-        "balance": "100005001001002003004005006"
+        "balance": "5001001002003004005006"
       },
       "7608213c8468dc111298a0ebd19191a5616861c8": {
         "balance": "5001001002003004005006"
@@ -46,11 +46,12 @@ eth:
     }
   }
 jsonrpc:
+  listen_host: '0.0.0.0'
   listen_port: 8545
 discovery:
   listen_port: 30303
   bootstrap_nodes: [
-        "enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@172.18.250.2:30303"
+    "enode://d3260a710a752b926bb3328ebe29bfb568e4fb3b4c7ff59450738661113fb21f5efbdf42904c706a9f152275890840345a5bc990745919eeb2dfc2c481d778ee@0.0.0.0:30303"
   ]
 p2p:
   listen_port: 30303

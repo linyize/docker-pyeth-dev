@@ -15,6 +15,9 @@ RUN apt-get install -y solc build-essential python-minimal aptitude curl \
     libssl-dev automake pkg-config libtool libffi-dev libgmp-dev
 RUN apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv
 
+RUN mkdir -p ~/.pip/
+COPY pip.conf ~/.pip/pip.conf
+
 # Install Python dependencies
 RUN python3.6 -m pip install pip --upgrade
 RUN python3.6 -m pip install wheel
@@ -34,15 +37,8 @@ RUN cd pyethereum/casper && git checkout feature-pos
 RUN git clone https://github.com/linyize/pydevp2p.git --branch feature-pos
 
 # Download the filebeat package and install 
-RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.0-amd64.deb
+RUN curl -L -O http://7b1gcw.com1.z0.glb.clouddn.com/filebeat-6.1.0-amd64.deb
 RUN dpkg -i filebeat-6.1.0-amd64.deb
-
-# config validator node
-COPY default_data/config /root/default_config
-COPY filebeat.yml /etc/filebeat/filebeat.yml
-RUN chmod go-w /etc/filebeat/filebeat.yml
-COPY default_data/log /root/log
-COPY start.sh /root/
 
 RUN cd pydevp2p && git pull
 RUN cd pyethereum/casper && git pull
@@ -50,7 +46,6 @@ RUN cd pyethereum && git pull
 RUN cd pyethapp && git pull
 RUN cd vyper && git checkout v0.0.4
 RUN cd pyethereum && python setup.py develop
-RUN cd pyethereum/casper && python setup.py develop
 RUN cd pyethapp && python setup.py develop
 RUN cd tinyrpc && python setup.py develop
 RUN cd pydevp2p && python setup.py develop
@@ -61,9 +56,16 @@ RUN rm -rf /usr/local/lib/python3.6/dist-packages/pyethapp-*
 RUN rm -rf /usr/local/lib/python3.6/dist-packages/tinyrpc-*
 RUN rm -rf /usr/local/lib/python3.6/dist-packages/vyper-*
 
+# config validator node
+COPY default_data/config /root/.config/pyethapp
+COPY filebeat.yml /etc/filebeat/filebeat.yml
+RUN chmod go-w /etc/filebeat/filebeat.yml
+COPY default_data/log /root/log
+COPY start.sh /root/
+COPY other/ /root/.config/pyethapp/keystore/
+
 EXPOSE 30303
 EXPOSE 30303/udp
 EXPOSE 8545
 
 ENTRYPOINT ["sh","/root/start.sh"]
-CMD ["pyethapp", "-m", "0", "--password", "/root/.config/pyethapp/password.txt", "-l", "eth.chain:info,eth.chainservice:info,eth.validator:info", "--log-file", "/root/log/log.txt", "-b", "$BOOTSTRAP_NODE", "run"]
