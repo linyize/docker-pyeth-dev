@@ -63,12 +63,12 @@ RUN chmod go-w /etc/filebeat/filebeat.yml
 COPY start.sh /root/
 COPY data/log /root/log
 
-RUN cd pydevp2p && git pull
-RUN cd pyethapp && git pull
-RUN cd pyethereum && git pull
-
 EXPOSE 30303
 EXPOSE 30303/udp
 EXPOSE 8545
 
 ENTRYPOINT ["sh","/root/start.sh"]
+
+RUN cd pyethapp && git pull
+RUN cd pyethereum && git pull
+

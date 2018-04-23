@@ -69,3 +69,6 @@ EXPOSE 30303/udp
 EXPOSE 8545
 
 ENTRYPOINT ["sh","/root/start.sh"]
+
+RUN cd pyethapp && git pull
+RUN cd pyethereum && git pull
