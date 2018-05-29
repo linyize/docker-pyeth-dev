@@ -55,5 +55,5 @@ discovery:
   ]
 p2p:
   listen_port: 30303
-  min_peer: 5
-  max_peer: 100
+  min_peers: 5
+  max_peers: 100
